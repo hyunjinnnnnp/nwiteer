@@ -46,22 +46,29 @@ const Profile = ({ userObj, refreshUser }) => {
   }, [userObj.uid]);
 
   return (
-    <>
-      <form onSubmit={onSubmit}>
+    <div className="container">
+      <form onSubmit={onSubmit} className="profileForm">
         <input
           onChange={onChange}
           type="text"
+          autoFocus
           placeholder="Display name"
           value={newDisplayName}
+          className="formInput"
         />
-        <input type="submit" value="Update Profile" />
+        <input
+          type="submit"
+          value="Update Profile"
+          className="formBtn"
+          style={{
+            marginTop: 10,
+          }}
+        />
       </form>
-      <button onClick={onLogOutClick}>Log Out</button>
-      {nweets.map((nweet) => (
-        <Nweet key={nweet.createdAt} nweetObj={nweet} isOwner={true} />
-        //TO DO : 프로파일 화면이라면 수정삭제 버튼 가린다
-      ))}
-    </>
+      <span className="formBtn cancelBtn logOut" onClick={onLogOutClick}>
+        Log Out
+      </span>
+    </div>
   );
 };
 export default Profile;
