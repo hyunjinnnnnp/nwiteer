@@ -27,6 +27,7 @@ const Nweet = ({ nweetObj, isOwner }) => {
     } = event;
     setNewNweet(value);
   };
+
   return (
     <div>
       {editing ? (
